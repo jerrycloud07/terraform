@@ -15,8 +15,8 @@ variable "tf_names" {
   description = "Names to be applied to resources"
   type        = map(string)
   default     = {
-    vm_name = "tf-vm"
-    disk_name = "tf-os-disk"
+    vm_name      = "tf-vm"
+    disk_name    = "tf-os-disk"
     network_name = "tf-vnet"
   }
 }
@@ -242,10 +242,8 @@ resource "azurerm_subnet" "tf_subnet" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-# Use the subnet_id from the created subnet
-variable "tf_subnet_id" {
-  description = "Virtual network subnet ID"
-  type        = string
-  default     = azurerm_subnet.tf_subnet.id
+# Use the subnet_id from the created subnet in your main configuration
+output "tf_subnet_id" {
+  description = "The ID of the created subnet"
+  value       = azurerm_subnet.tf_subnet.id
 }
-
