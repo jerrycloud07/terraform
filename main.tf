@@ -1,6 +1,6 @@
 # testing###
-
-# Randoms
+# Random_new
+# Random_old
 resource "random_string" "windows_name" {
   length  = 15
   special = false
